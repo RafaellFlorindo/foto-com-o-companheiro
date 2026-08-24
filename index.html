@@ -1001,9 +1001,9 @@
     </div>
 
     <div class="hero-cta">
-      <a href="#" class="btn btn-primary" data-whatsapp>
+      <a href="#" class="btn btn-primary" data-checkout>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-        Quero minha foto por R$ 13 no WhatsApp
+        Quero minha foto por R$ 13
       </a>
       <p class="btn-sub">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
@@ -1044,7 +1044,7 @@
     </div>
 
     <div class="transform-cta">
-      <a href="#" class="btn btn-primary" data-whatsapp>
+      <a href="#" class="btn btn-primary" data-checkout>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
         Quero minha foto por R$ 13
       </a>
@@ -1121,7 +1121,7 @@
   <div class="wrap">
     <h2>UMA FOTO DIFERENTE PRA <span class="amarelo">GUARDAR, POSTAR E MOSTRAR.</span></h2>
     <p>Por R$ 13, você transforma uma foto comum em uma montagem personalizada para guardar, usar no perfil ou compartilhar com quem quiser.</p>
-    <a href="#" class="btn btn-primary" data-whatsapp>
+    <a href="#" class="btn btn-primary" data-checkout>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
       Quero minha foto por R$ 13
     </a>
@@ -1185,8 +1185,8 @@
       <div class="valor"><span>R$</span> 13,00</div>
       <p class="pagamento">Sem mensalidade • Sem taxa extra</p>
 
-      <!-- CTA configurado pelo WHATSAPP_NUMBER no final do arquivo -->
-      <a href="#" class="btn btn-primary" data-whatsapp>
+      <!-- CTA configurado pelo CAKTO_CHECKOUT_URL no final do arquivo -->
+      <a href="#" class="btn btn-primary" data-checkout>
         Quero minha foto por R$ 13
       </a>
 
@@ -1245,10 +1245,10 @@
 <!-- CTA FINAL -->
 <section class="final-section">
   <div class="wrap">
-    <h2>QUER A SUA? CHAMA NO WHATSAPP E ENVIE SUA FOTO</h2>
-    <p class="sub">Por R$ 13, você recebe uma montagem personalizada criada com IA. Atendimento manual pelo WhatsApp nesta fase inicial.</p>
+    <h2>QUER A SUA? GARANTA AGORA POR R$ 13</h2>
+    <p class="sub">Por R$ 13, você recebe uma montagem personalizada criada com IA. Pagamento seguro pela Cakto; envio da foto combinado pelo WhatsApp.</p>
     <div class="final-price"><span class="lbl">Hoje:</span> <span class="val">R$ 13,00</span></div>
-    <a href="#" class="btn btn-primary" data-whatsapp>
+    <a href="#" class="btn btn-primary" data-checkout>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
       Quero minha foto por R$ 13
     </a>
@@ -1272,7 +1272,7 @@
 
 <!-- BARRA FIXA MOBILE -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="#" class="btn btn-primary" style="flex:1" data-whatsapp>Quero minha foto — R$ 13</a>
+  <a href="#" class="btn btn-primary" style="flex:1" data-checkout>Quero minha foto — R$ 13</a>
 </div>
 
 <script>
@@ -1292,6 +1292,15 @@
 
   document.querySelectorAll('[data-whatsapp]').forEach(el => {
     el.href = WHATSAPP_URL;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+  });
+
+  // CHECKOUT — link de pagamento do produto na Cakto.
+  const CAKTO_CHECKOUT_URL = 'https://pay.cakto.com.br/bs8zjtu';
+
+  document.querySelectorAll('[data-checkout]').forEach(el => {
+    el.href = CAKTO_CHECKOUT_URL;
     el.target = '_blank';
     el.rel = 'noopener noreferrer';
   });
