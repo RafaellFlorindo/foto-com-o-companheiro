@@ -1,0 +1,73 @@
+---
+const examples = [
+  { src: '/img1.png', alt: 'Exemplo de montagem com IA: cliente ao lado do Lula' },
+  { src: '/img2.png', alt: 'Exemplo de montagem com IA: cliente ao lado do Lula' },
+  { src: '/img3.png', alt: 'Exemplo de montagem com IA: cliente ao lado do Lula' },
+  { src: '/img4.png', alt: 'Exemplo de montagem com IA: cliente ao lado do Lula' },
+];
+---
+<section class="gallery-section">
+  <div class="wrap">
+    <span class="section-kicker">Exemplos</span>
+    <h2>VEJA ALGUNS RESULTADOS</h2>
+    <div class="gallery-grid">
+      {examples.map((example) => (
+        <div class="gal-card">
+          <span class="gal-tag">Montagem com IA</span>
+          <img class="gal-img" src={example.src} alt={example.alt}>
+        </div>
+      ))}
+    </div>
+    <p class="gallery-note">Exemplos de montagens criadas com inteligência artificial. Não representam encontros reais, vínculo ou endosso da pessoa retratada.</p>
+  </div>
+</section>
+
+<style>
+  .gallery-section{
+    background: var(--preto);
+    padding: 48px 0;
+  }
+  .gallery-section h2{
+    font-size: 24px;
+    color: var(--branco-puro);
+    text-align:center;
+    margin-bottom: 26px;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .gal-card{
+    position:relative;
+    border-radius: var(--radius);
+    overflow:hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+  }
+  .gal-tag{
+    position:absolute; top:10px; left:10px; z-index:2;
+    background: var(--dourado);
+    color: var(--preto);
+    font-size: 9.5px;
+    font-weight:800;
+    letter-spacing:0.4px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    text-transform:uppercase;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  }
+  .gallery-note{
+    text-align:center;
+    font-size: 12px;
+    color: rgba(255,233,214,0.5);
+    max-width: 380px;
+    margin: 20px auto 0;
+    font-style: italic;
+    line-height:1.6;
+  }
+  @media(min-width:900px){
+    .gallery-grid{ grid-template-columns: repeat(4,1fr); }
+    .gallery-section h2{ font-size:32px; }
+  }
+</style>

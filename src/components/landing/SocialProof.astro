@@ -1,0 +1,74 @@
+---
+// Fica oculto até termos prints reais de clientes que autorizaram a publicação.
+// Pra ligar: passe visible={true} em index.astro.
+interface Props {
+  visible?: boolean;
+}
+
+const { visible = false } = Astro.props;
+
+const shots = [
+  { label: 'PRINT REAL DO WHATSAPP 1', file: 'prova1.png' },
+  { label: 'PRINT REAL DO WHATSAPP 2', file: 'prova2.png' },
+  { label: 'PRINT REAL DO WHATSAPP 3', file: 'prova3.png' },
+];
+---
+{visible && (
+  <section class="social-section" id="provas-sociais">
+    <div class="wrap">
+      <span class="section-kicker">Provas sociais</span>
+      <h2>O QUE OS CLIENTES ESTÃO FALANDO</h2>
+      <p class="social-intro">Use apenas depoimentos e prints reais de clientes que autorizaram a publicação.</p>
+      <div class="social-grid">
+        {shots.map((shot) => (
+          <div class="social-shot">{shot.label}<br />{shot.file}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .social-section{
+    background: linear-gradient(180deg, #180909, var(--preto));
+    padding: 48px 0;
+  }
+  .social-section h2{
+    font-size:24px;
+    color:var(--branco-puro);
+    text-align:center;
+    margin-bottom:8px;
+  }
+  .social-section .social-intro{
+    max-width:560px;
+    margin:0 auto 26px;
+    text-align:center;
+    color:rgba(255,233,214,.72);
+    font-size:14px;
+  }
+  .social-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    max-width:860px;
+    margin:0 auto;
+  }
+  .social-shot{
+    min-height:220px;
+    border:1px dashed rgba(255,201,60,.45);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.04);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+    color:rgba(255,233,214,.65);
+    font-size:13px;
+    font-weight:700;
+  }
+  @media(min-width:900px){
+    .social-grid{ grid-template-columns:repeat(3,1fr); }
+    .social-section h2{ font-size:32px; }
+  }
+</style>

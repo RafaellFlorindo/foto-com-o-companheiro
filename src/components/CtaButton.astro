@@ -1,0 +1,21 @@
+---
+interface Props {
+  href: string;
+  arrow?: boolean;
+  external?: boolean;
+  class?: string;
+}
+
+const { href, arrow = false, external = false, class: className } = Astro.props;
+---
+<a
+  href={href}
+  class:list={['btn', 'btn-primary', className]}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+>
+  {arrow && (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+  )}
+  <slot />
+</a>

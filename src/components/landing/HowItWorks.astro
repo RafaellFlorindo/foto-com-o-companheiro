@@ -1,0 +1,93 @@
+---
+const steps = [
+  {
+    label: 'Passo 1',
+    title: 'Envie sua foto',
+    text: 'Escolha uma foto nítida, de preferência com o rosto aparecendo bem.',
+  },
+  {
+    label: 'Passo 2',
+    title: 'Criamos sua imagem',
+    text: 'Criamos uma montagem personalizada sua ao lado do Lula com inteligência artificial.',
+  },
+  {
+    label: 'Passo 3',
+    title: 'Receba o resultado',
+    text: 'Você recebe o arquivo digital pronto pelo atendimento combinado no WhatsApp.',
+  },
+];
+---
+<section class="how-section" id="como-funciona">
+  <div class="wrap">
+    <span class="section-kicker">Processo</span>
+    <h2>VEJA COMO É SIMPLES</h2>
+    <p class="intro">Sem programa complicado e sem precisar saber editar. Você manda a foto e a gente cuida do resto.</p>
+    <div class="steps">
+      {steps.map((step) => (
+        <div class="step">
+          <span class="step-num">{step.label}</span>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-section{
+    background: var(--preto);
+    padding: 50px 0 46px;
+  }
+  .how-section h2{
+    font-size: 25px;
+    color: var(--branco-puro);
+    text-align:center;
+    margin-bottom: 10px;
+  }
+  .how-section .intro{
+    text-align:center;
+    font-size: 15px;
+    color: rgba(255,233,214,0.72);
+    max-width: 360px;
+    margin: 0 auto 28px;
+    font-weight: 600;
+  }
+  .steps{
+    display:flex;
+    flex-direction:column;
+    border: 1px solid rgba(216,19,19,0.35);
+    border-radius: var(--radius);
+    overflow:hidden;
+  }
+  .step{
+    padding: 22px 20px;
+    border-top: 1px solid rgba(216,19,19,0.3);
+  }
+  .step:first-child{ border-top:none; }
+  .step-num{
+    display:block;
+    font-family:'Anton', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    color: var(--dourado);
+    margin-bottom: 8px;
+  }
+  .step h3{
+    font-family:'Manrope',sans-serif;
+    text-transform:none;
+    font-size: 16.5px;
+    font-weight:800;
+    color: var(--branco-puro);
+    margin-bottom:4px;
+    letter-spacing:0;
+  }
+  .step p{ font-size: 13.5px; color: rgba(255,233,214,0.78); font-weight:500; }
+  @media(min-width:900px){
+    .steps{ flex-direction:row; }
+    .step{ flex:1; border-top:none; border-left: 1px solid rgba(216,19,19,0.3); padding: 30px 26px; }
+    .step:first-child{ border-left:none; }
+    .how-section h2{ font-size:34px; }
+    .how-section .intro{ max-width:520px; font-size:16px; }
+  }
+</style>

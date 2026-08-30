@@ -1,0 +1,54 @@
+---
+import Logo from '../Logo.astro';
+import CtaButton from '../CtaButton.astro';
+import { CHECKOUT_PATH } from '../../config/site';
+---
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <Logo />
+    <nav class="nav-links">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#exemplos">Exemplos</a>
+      <a href="#preco">Preço</a>
+    </nav>
+    <CtaButton href={CHECKOUT_PATH} class="nav-cta">Quero a minha</CtaButton>
+  </div>
+</div>
+
+<style>
+  .topbar{
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    min-height: 68px;
+    background: var(--preto);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .topbar-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+    min-height: 68px;
+  }
+  .nav-links{
+    display:none;
+    align-items:center;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .nav-links a{ color: rgba(255,233,214,0.82); transition: color .15s ease; }
+  .nav-links a:hover{ color: var(--dourado-2); }
+  :global(.nav-cta){
+    display:none;
+    width: auto;
+    font-size: 13px;
+    padding: 12px 22px;
+    box-shadow: 0 5px 0 #b8860b, 0 10px 18px rgba(0,0,0,0.35);
+  }
+  @media(min-width:900px){
+    .nav-links{ display:flex; }
+    :global(.nav-cta){ display:flex; }
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+import CtaButton from '../CtaButton.astro';
+import { CHECKOUT_PATH, PRICE_SHORT_LABEL } from '../../config/site';
+---
+<section class="final-section">
+  <div class="wrap">
+    <h2>QUER A SUA? GARANTA AGORA POR R$ 13</h2>
+    <p class="sub">Por R$ 13, você recebe uma montagem personalizada criada com IA. Pagamento seguro pela Cakto; envio da foto combinado pelo WhatsApp.</p>
+    <div class="final-price"><span class="lbl">Hoje:</span> <span class="val">R$ 13,00</span></div>
+    <CtaButton href={CHECKOUT_PATH} arrow>Quero minha foto por {PRICE_SHORT_LABEL}</CtaButton>
+    <p class="btn-sub">Pagamento único • Produto digital</p>
+  </div>
+</section>
+
+<style>
+  .final-section{
+    background: linear-gradient(135deg, var(--dourado-2), var(--dourado));
+    padding: 56px 0 60px;
+    text-align:center;
+  }
+  .final-section h2{
+    font-size: 26px;
+    color: var(--preto);
+    max-width: 340px;
+    margin: 0 auto 14px;
+  }
+  .final-section p.sub{
+    font-size: 15px;
+    color: rgba(26,13,13,0.75);
+    max-width: 340px;
+    margin: 0 auto 24px;
+    font-weight:600;
+  }
+  .final-price{
+    display:inline-flex;
+    align-items:baseline;
+    gap: 8px;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(74,5,5,0.25);
+    border-radius: 100px;
+    padding: 10px 22px;
+    margin-bottom: 24px;
+  }
+  .final-price .lbl{
+    font-family:'Anton', sans-serif;
+    color: var(--preto);
+    font-size: 15px;
+    letter-spacing:0.5px;
+  }
+  .final-price .val{
+    font-family:'Anton', sans-serif;
+    color: var(--vermelho-vivo);
+    font-size: 28px;
+  }
+  .final-section :global(.btn-primary){
+    max-width: 360px;
+    margin:0 auto;
+    background: var(--preto);
+    color: var(--dourado);
+    box-shadow: 0 8px 0 #000, 0 18px 30px rgba(0,0,0,0.3);
+  }
+  .final-section :global(.btn-primary:active){ box-shadow: 0 2px 0 #000; }
+  .final-section p.btn-sub{ color: rgba(26,13,13,0.7); }
+  @media(min-width:900px){
+    .final-section h2{ font-size:38px; max-width:600px; }
+    .final-section p.sub{ max-width:520px; font-size:17px; }
+  }
+</style>

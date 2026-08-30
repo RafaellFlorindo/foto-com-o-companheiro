@@ -1,0 +1,87 @@
+---
+import CompareCard from './CompareCard.astro';
+import CtaButton from '../CtaButton.astro';
+import { CHECKOUT_PATH, PRICE_SHORT_LABEL } from '../../config/site';
+---
+<section class="transform-section" id="exemplos">
+  <div class="wrap">
+    <span class="section-kicker dark">A transformação</span>
+    <h2>VOCÊ MANDA UMA FOTO COMUM. A GENTE FAZ A TRANSFORMAÇÃO.</h2>
+    <p class="intro">Sem aplicativo, sem edição e sem complicação. Você envia a foto e recebe uma montagem personalizada pronta.</p>
+
+    <div class="ad-grid">
+      <CompareCard
+        variant="antes"
+        tag="Sua foto"
+        src="/antes.png"
+        alt="Antes: foto original enviada pelo cliente"
+        caption="Antes"
+      />
+
+      <div class="arrow-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+
+      <CompareCard
+        variant="depois"
+        tag="Gerado por IA"
+        src="/dps.png"
+        alt="Depois: montagem personalizada criada com IA ao lado do Lula"
+        caption="Depois"
+      />
+    </div>
+
+    <div class="transform-cta">
+      <CtaButton href={CHECKOUT_PATH} arrow>Quero minha foto por {PRICE_SHORT_LABEL}</CtaButton>
+    </div>
+  </div>
+</section>
+
+<style>
+  .transform-section{
+    background: var(--branco);
+    color: var(--preto);
+    padding: 48px 0 46px;
+  }
+  .transform-section h2{
+    font-size: 25px;
+    color: var(--vermelho-escuro);
+    text-align:center;
+    margin-bottom: 10px;
+  }
+  .transform-section > .wrap > p.intro{
+    text-align:center;
+    font-size: 15px;
+    color: #55403f;
+    max-width: 340px;
+    margin: 0 auto 28px;
+    font-weight: 600;
+  }
+  .ad-grid{
+    display:grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items:center;
+    gap: 12px;
+    max-width: 460px;
+    margin: 0 auto 18px;
+  }
+  .arrow-icon{
+    width: 38px; height:38px;
+    background: var(--dourado);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+  }
+  .arrow-icon svg{ width:18px; height:18px; color: var(--preto); }
+
+  .transform-cta{ max-width: 340px; margin: 26px auto 0; }
+
+  @media(max-width:360px){
+    .ad-grid{ gap:8px; }
+  }
+  @media(min-width:900px){
+    .ad-grid{ max-width: 640px; }
+    .transform-section h2{ font-size:34px; }
+    .transform-section > .wrap > p.intro{ max-width:520px; font-size:16px; }
+  }
+</style>

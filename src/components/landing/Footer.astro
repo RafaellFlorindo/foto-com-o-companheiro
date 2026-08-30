@@ -1,0 +1,80 @@
+---
+import { whatsappUrl, SITE_NAME } from '../../config/site';
+
+const currentYear = 2026;
+---
+<footer>
+  <div class="wrap">
+    <div class="footer-notice">
+      <p><strong>Aviso:</strong> Este produto oferece uma montagem digital criada com inteligência artificial. As imagens não representam encontro real e não implicam vínculo, participação, autorização institucional ou endosso do Lula ao produto.</p>
+    </div>
+    <div class="foot-bottom">
+      <span class="copyright">© {currentYear} {SITE_NAME}</span>
+      <a href={whatsappUrl()} class="wpp-link" target="_blank" rel="noopener noreferrer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.2 5.2 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <div class="foot-links">
+        <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a> • <a href="#">Contato</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer{
+    background: var(--preto);
+    padding: 28px 0 96px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-notice{
+    text-align:left;
+    border-left: 3px solid var(--dourado);
+    background: rgba(255,255,255,0.03);
+    padding: 14px 16px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: 20px;
+  }
+  .footer-notice p{
+    font-size: 11.5px;
+    color: rgba(255,233,214,0.55);
+    line-height:1.7;
+    margin:0;
+    max-width:none;
+  }
+  .footer-notice strong{ color: var(--dourado-2); }
+  footer .foot-bottom{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 10px;
+    text-align:center;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer .copyright{
+    font-size: 11.5px;
+    color: rgba(255,233,214,0.4);
+  }
+  footer .foot-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap: 6px 10px;
+    font-size: 11.5px;
+    color: rgba(255,233,214,0.45);
+    font-weight:600;
+  }
+  footer .wpp-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color: var(--dourado-2);
+    font-weight:700;
+    font-size:13px;
+  }
+  @media(min-width:900px){
+    footer{ padding-bottom: 40px; }
+    .footer-notice{ max-width: 720px; margin-left:auto; margin-right:auto; }
+  }
+</style>

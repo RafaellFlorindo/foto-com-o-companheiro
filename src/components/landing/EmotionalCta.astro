@@ -1,0 +1,42 @@
+---
+import CtaButton from '../CtaButton.astro';
+import { CHECKOUT_PATH, PRICE_SHORT_LABEL } from '../../config/site';
+---
+<section class="emo-section">
+  <div class="wrap">
+    <h2>UMA FOTO DIFERENTE PRA <span class="amarelo">GUARDAR, POSTAR E MOSTRAR.</span></h2>
+    <p>Por R$ 13, você transforma uma foto comum em uma montagem personalizada para guardar, usar no perfil ou compartilhar com quem quiser.</p>
+    <CtaButton href={CHECKOUT_PATH} arrow>Quero minha foto por {PRICE_SHORT_LABEL}</CtaButton>
+  </div>
+</section>
+
+<style>
+  .emo-section{
+    background:
+      radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,0.06), transparent 60%),
+      linear-gradient(160deg, #3a0303, #1f0202);
+    padding: 56px 0 52px;
+    text-align:center;
+    border-top: 1px solid rgba(255,201,60,0.15);
+    border-bottom: 1px solid rgba(255,201,60,0.15);
+  }
+  .emo-section h2{
+    font-size: 26px;
+    color: var(--branco-puro);
+    max-width: 340px;
+    margin: 0 auto 16px;
+  }
+  .emo-section p{
+    font-size: 15px;
+    color: var(--texto-claro);
+    opacity:0.88;
+    max-width: 340px;
+    margin: 0 auto 30px;
+    font-weight:500;
+  }
+  .emo-section :global(.btn-primary){ max-width: 340px; margin:0 auto; }
+  @media(min-width:900px){
+    .emo-section h2{ font-size:36px; max-width:600px; }
+    .emo-section p{ max-width:520px; font-size:17px; }
+  }
+</style>

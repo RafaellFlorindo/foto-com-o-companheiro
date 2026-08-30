@@ -1,0 +1,32 @@
+---
+import MetaPixel from '../components/MetaPixel.astro';
+import { FAVICON_SRC } from '../config/site';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  bodyClass?: string;
+}
+
+const { title, description, bodyClass } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <MetaPixel />
+  <link rel="icon" type="image/png" href={FAVICON_SRC}>
+  <link rel="apple-touch-icon" href={FAVICON_SRC}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class={bodyClass}>
+  <slot />
+</body>
+</html>
