@@ -1,8 +1,0 @@
-{
-  "name": "foto-com-companheiro-checkout",
-  "private": true,
-  "version": "1.0.0",
-  "engines": {
-    "node": ">=18"
-  }
-}

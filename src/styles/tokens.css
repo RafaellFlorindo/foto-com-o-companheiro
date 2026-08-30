@@ -1,0 +1,18 @@
+:root{
+  --vermelho-escuro: #4a0505;
+  --vermelho-escuro-2: #5c0808;
+  --vermelho-vivo: #d81313;
+  --vermelho-vivo-2: #ef1c1c;
+  --branco: #fff8f0;
+  --branco-puro: #ffffff;
+  --dourado: #ffc93c;
+  --dourado-2: #ffe08a;
+  --preto: #1a0d0d;
+  --preto-2: #120808;
+  --texto-claro: #ffe9d6;
+  --sombra: rgba(0,0,0,.35);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --max-w: 460px;
+  --max-w-desktop: 1140px;
+}

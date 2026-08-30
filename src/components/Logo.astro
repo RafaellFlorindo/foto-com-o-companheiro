@@ -1,0 +1,27 @@
+---
+import { LOGO_SRC } from '../config/site';
+---
+<div class="logo"><img src={LOGO_SRC} alt="Foto com o Companheiro"></div>
+
+<style>
+  .logo{
+    font-family:'Anton', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--branco-puro);
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo img{
+    height: 48px;
+    width: auto;
+    max-width: 230px;
+    object-fit: contain;
+    display:block;
+  }
+  @media(max-width:640px){
+    .logo img{
+      height: 40px;
+      max-width: 200px;
+    }
+  }
+</style>

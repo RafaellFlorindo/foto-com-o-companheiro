@@ -1,0 +1,110 @@
+*{ box-sizing: border-box; margin:0; padding:0; }
+html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body{
+  font-family: 'Manrope', -apple-system, sans-serif;
+  background: var(--preto);
+  color: var(--texto-claro);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+img{ max-width: 100%; display:block; }
+.ph-img,.gal-img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+}
+.ph-img{ aspect-ratio:4/5; }
+.gal-img{ aspect-ratio:4/5; }
+.wrap{ max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+@media(min-width: 900px){
+  .wrap{ max-width: var(--max-w-desktop); padding: 0 32px; }
+}
+
+h1,h2,h3,.font-display{
+  font-family: 'Anton', 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+}
+.amarelo{ color: var(--dourado); }
+.destaque-bg{ background: var(--dourado); color: var(--preto); padding: 2px 8px; border-radius: 4px; }
+
+a{ color: inherit; text-decoration: none; }
+section{ position: relative; }
+
+.eyebrow-line{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin-bottom: 14px;
+}
+.eyebrow-line .rule{ width:22px; height:2px; background: rgba(255,201,60,0.5); border-radius:2px; }
+
+/* ---------- BADGE / EYEBROW ---------- */
+.eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,201,60,0.5);
+  color: var(--dourado-2);
+  font-weight: 800;
+  font-size: 12.5px;
+  letter-spacing: 0.6px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+.section-kicker{
+  display:block;
+  text-align:center;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 8px;
+}
+.section-kicker.dark{ color: var(--vermelho-vivo); }
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-primary{
+  background: linear-gradient(180deg, var(--dourado-2) 0%, var(--dourado) 100%);
+  color: var(--vermelho-escuro);
+  font-size: 19px;
+  padding: 20px 22px;
+  box-shadow: 0 8px 0 #b8860b, 0 18px 30px rgba(0,0,0,0.45);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn-primary:active{
+  transform: translateY(6px);
+  box-shadow: 0 2px 0 #b8860b, 0 4px 10px rgba(0,0,0,0.4);
+}
+.btn-primary svg{ width: 22px; height: 22px; flex-shrink:0; }
+.btn-sub{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  text-align:center;
+  font-size: 13px;
+  color: rgba(255,233,214,0.75);
+  margin-top: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.btn-sub svg{ width:14px; height:14px; flex-shrink:0; }

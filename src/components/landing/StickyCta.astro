@@ -1,0 +1,36 @@
+---
+import CtaButton from '../CtaButton.astro';
+import { CHECKOUT_PATH } from '../../config/site';
+---
+<div class="sticky-cta" id="stickyCta">
+  <CtaButton href={CHECKOUT_PATH} class="sticky-cta-btn">Quero minha foto — R$ 13</CtaButton>
+</div>
+
+<script>
+  import '../../scripts/landing.client';
+</script>
+
+<style>
+  .sticky-cta{
+    position: fixed;
+    left:0; right:0; bottom:0;
+    z-index: 999;
+    background: rgba(20,8,8,0.97);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255,201,60,0.3);
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    transform: translateY(120%);
+    transition: transform .3s ease;
+  }
+  .sticky-cta.show{ transform: translateY(0); }
+  .sticky-cta :global(.sticky-cta-btn){
+    flex:1;
+    font-size: 15px;
+    padding: 14px 16px;
+    box-shadow: 0 5px 0 #b8860b;
+  }
+  @media(min-width:900px){ .sticky-cta{ display:none; } }
+</style>

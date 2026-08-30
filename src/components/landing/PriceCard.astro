@@ -1,0 +1,132 @@
+---
+import CtaButton from '../CtaButton.astro';
+import { CHECKOUT_PATH, PRICE_SHORT_LABEL } from '../../config/site';
+
+const checklist = [
+  'Montagem personalizada',
+  'Arquivo digital em alta qualidade',
+  'Sem mensalidade',
+  'Atendimento simples pelo WhatsApp',
+  'Entrega 100% online',
+];
+---
+<section class="price-section" id="preco">
+  <div class="wrap">
+    <span class="section-kicker">Oferta</span>
+    <h2>POR R$ 13, VOCÊ MANDA A FOTO E A GENTE FAZ O RESTO</h2>
+
+    <div class="price-card">
+      <span class="ribbon">Oferta especial</span>
+      <span class="oferta">Pagamento 100% único</span>
+      <div class="valor"><span>R$</span> 13,00</div>
+      <p class="pagamento">Sem mensalidade • Sem taxa extra</p>
+
+      <CtaButton href={CHECKOUT_PATH}>Quero minha foto por {PRICE_SHORT_LABEL}</CtaButton>
+
+      <ul class="price-checklist">
+        {checklist.map((item) => (
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span> {item}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .price-section{
+    background: linear-gradient(180deg, var(--preto), var(--vermelho-escuro) 40%, var(--vermelho-escuro-2));
+    padding: 52px 0 48px;
+    text-align:center;
+  }
+  .price-section h2{
+    font-size: 24px;
+    color: var(--branco-puro);
+    max-width: 340px;
+    margin: 0 auto 28px;
+  }
+  .price-card{
+    background: var(--branco-puro);
+    color: var(--preto);
+    border-radius: 24px;
+    padding: 34px 24px 28px;
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    border: 4px solid var(--dourado);
+    position:relative;
+  }
+  .price-card .ribbon{
+    position:absolute;
+    top:-14px; left:50%;
+    transform: translateX(-50%);
+    background: var(--vermelho-vivo);
+    color:#fff;
+    font-size: 11px;
+    font-weight:800;
+    letter-spacing:1px;
+    padding: 6px 18px;
+    border-radius: 100px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    white-space:nowrap;
+  }
+  .price-card .oferta{
+    display:inline-block;
+    background: rgba(216,19,19,0.1);
+    color: var(--vermelho-vivo);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin: 10px 0 14px;
+  }
+  .price-card .valor{
+    font-family:'Anton', sans-serif;
+    font-size: 62px;
+    color: var(--vermelho-vivo);
+    line-height:1;
+  }
+  .price-card .valor span{ font-size:26px; vertical-align:12px; }
+  .price-card .pagamento{
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #7a7a7a;
+    text-transform: uppercase;
+    margin: 8px 0 22px;
+  }
+  .price-card :global(.btn-primary){
+    background: linear-gradient(180deg, var(--vermelho-vivo-2), var(--vermelho-vivo));
+    color: #fff;
+    box-shadow: 0 8px 0 #8a0c0c, 0 16px 26px rgba(216,19,19,0.35);
+    font-size: 17px;
+  }
+  .price-card :global(.btn-primary:active){ box-shadow: 0 2px 0 #8a0c0c; }
+  .price-checklist{
+    list-style:none;
+    text-align:left;
+    margin-top: 22px;
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
+  .price-checklist li{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2a2a2a;
+  }
+  .price-checklist .ck{
+    flex-shrink:0;
+    width: 22px; height:22px;
+    border-radius:50%;
+    background: rgba(216,19,19,0.1);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .price-checklist svg{ width:13px; height:13px; color: var(--vermelho-vivo); }
+  @media(min-width:900px){
+    .price-section h2{ font-size:32px; max-width:560px; }
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+interface Props {
+  variant: 'antes' | 'depois';
+  tag: string;
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+const { variant, tag, src, alt, caption } = Astro.props;
+---
+<div class:list={['ad-card', variant]}>
+  <span class="tag">{tag}</span>
+  <img class="ph-img" src={src} alt={alt}>
+  <div class="cap">{caption}</div>
+</div>
+
+<style>
+  .ad-card{
+    position:relative;
+    border-radius: var(--radius);
+    overflow:hidden;
+    box-shadow: 0 16px 32px rgba(74,5,5,0.16);
+    background: var(--branco-puro);
+    border: 1px solid rgba(74,5,5,0.08);
+  }
+  .ad-card .tag{
+    position:absolute;
+    top:10px; left:10px; z-index:2;
+    font-family:'Anton', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    color:var(--branco-puro);
+  }
+  .ad-card.antes .tag{ background: rgba(44,44,44,0.85); }
+  .ad-card.depois .tag{ background: linear-gradient(90deg, var(--vermelho-vivo), var(--vermelho-vivo-2)); }
+  .ad-card .cap{
+    text-align:center;
+    padding: 10px 8px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--vermelho-escuro);
+  }
+</style>

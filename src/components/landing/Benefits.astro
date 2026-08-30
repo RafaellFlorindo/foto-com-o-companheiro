@@ -1,0 +1,70 @@
+---
+const benefits = [
+  { title: 'Acabamento caprichado', text: 'A composição é trabalhada para integrar sua foto de forma natural e bem acabada.' },
+  { title: 'Feito a partir da sua foto', text: 'Cada pedido é personalizado.' },
+  { title: 'Entrega digital', text: 'Você recebe o arquivo pronto no atendimento pelo WhatsApp.' },
+  { title: 'Fácil e rápido', text: 'Sem programas complicados e sem precisar saber editar.' },
+  { title: 'Privacidade', text: 'Sua foto será utilizada para produzir o pedido solicitado.' },
+];
+---
+<section class="benef-section">
+  <div class="wrap">
+    <span class="section-kicker">Por que escolher</span>
+    <h2>UMA MONTAGEM FEITA COM A SUA FOTO — POR SÓ R$ 13</h2>
+    <div class="benef-list">
+      {benefits.map((item) => (
+        <div class="benef-item">
+          <div class="benef-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div><h3>{item.title}</h3><p>{item.text}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benef-section{
+    background: linear-gradient(180deg, var(--vermelho-escuro-2), var(--preto));
+    padding: 48px 0;
+  }
+  .benef-section h2{
+    font-size: 24px;
+    color: var(--branco-puro);
+    text-align:center;
+    max-width: 340px;
+    margin: 0 auto 30px;
+  }
+  .benef-list{ display:flex; flex-direction:column; gap: 12px; }
+  .benef-item{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  }
+  .benef-icon{
+    flex-shrink:0;
+    width: 42px; height:42px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, var(--dourado-2), var(--dourado));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .benef-icon svg{ width:20px; height:20px; color: var(--vermelho-escuro); }
+  .benef-item h3{
+    font-family:'Manrope', sans-serif;
+    text-transform:none;
+    font-size: 15px;
+    font-weight:800;
+    color: var(--branco-puro);
+    letter-spacing:0;
+    margin-bottom:2px;
+  }
+  .benef-item p{ font-size: 13px; color: rgba(255,233,214,0.72); font-weight:500; }
+  @media(min-width:900px){
+    .benef-section h2{ font-size:32px; max-width:600px; }
+    .benef-list{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  }
+</style>

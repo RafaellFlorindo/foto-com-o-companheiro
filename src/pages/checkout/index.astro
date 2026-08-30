@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OrderSummary from '../../components/checkout/OrderSummary.astro';
+import CheckoutForm from '../../components/checkout/CheckoutForm.astro';
+import PixResult from '../../components/checkout/PixResult.astro';
+import { LOGO_SRC } from '../../config/site';
+import '../../styles/checkout.css';
+---
+<BaseLayout
+  title="Finalizar compra — Foto com o Companheiro"
+  description="Finalize sua compra da montagem personalizada com IA ao lado do Lula. Pagamento via Pix, R$ 13,00."
+  bodyClass="checkout-page"
+>
+  <div class="checkout-wrap">
+    <div class="checkout-logo"><img src={LOGO_SRC} alt=""> Foto com<span class="dot">.</span>Companheiro</div>
+
+    <div class="card">
+      <OrderSummary />
+      <CheckoutForm />
+      <PixResult />
+    </div>
+  </div>
+
+  <script>
+    import '../../scripts/checkout.client';
+  </script>
+</BaseLayout>

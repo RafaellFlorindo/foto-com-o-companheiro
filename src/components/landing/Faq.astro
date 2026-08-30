@@ -1,0 +1,88 @@
+---
+const faqs = [
+  {
+    q: 'Como envio minha foto?',
+    a: 'Você chama no WhatsApp e envia a foto que quer usar. Daremos as instruções por lá.',
+  },
+  {
+    q: 'Preciso saber usar inteligência artificial?',
+    a: 'Não. Todo o processo de criação é feito para você.',
+  },
+  {
+    q: 'O produto é físico?',
+    a: 'Não. O resultado é um arquivo digital.',
+  },
+  {
+    q: 'Posso usar qualquer foto?',
+    a: 'Para um resultado melhor, escolha uma imagem com boa iluminação e o rosto claramente visível.',
+  },
+  {
+    q: 'A imagem representa um encontro verdadeiro?',
+    a: 'Não. É uma montagem artística criada digitalmente com inteligência artificial e não representa um encontro real, vínculo ou endosso do Lula ao produto.',
+  },
+];
+---
+<section class="faq-section">
+  <div class="wrap">
+    <span class="section-kicker">Dúvidas</span>
+    <h2>PERGUNTAS FREQUENTES</h2>
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <details class="faq-item">
+          <summary>{item.q}</summary>
+          <div class="faq-a">{item.a}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section{
+    background: var(--preto);
+    padding: 48px 0;
+  }
+  .faq-section h2{
+    font-size: 24px;
+    color: var(--branco-puro);
+    text-align:center;
+    margin-bottom: 26px;
+  }
+  .faq-list{ display:flex; flex-direction:column; gap:10px; max-width: 620px; margin:0 auto; }
+  .faq-item{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: var(--radius-sm);
+    overflow:hidden;
+    transition: border-color .2s ease;
+  }
+  .faq-item[open]{ border-color: rgba(255,201,60,0.35); }
+  .faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    padding: 17px 46px 17px 18px;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--branco-puro);
+    position:relative;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{
+    content:"+";
+    position:absolute;
+    right: 18px; top: 50%;
+    transform: translateY(-50%);
+    font-family:'Anton',sans-serif;
+    font-size: 19px;
+    color: var(--dourado);
+    transition: transform .2s ease;
+  }
+  .faq-item[open] summary::after{ transform: translateY(-50%) rotate(45deg); }
+  .faq-item .faq-a{
+    padding: 0 18px 18px;
+    font-size: 13.5px;
+    color: rgba(255,233,214,0.75);
+    font-weight:500;
+    line-height:1.6;
+  }
+</style>

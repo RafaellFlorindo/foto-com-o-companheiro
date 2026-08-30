@@ -1,0 +1,32 @@
+---
+import PhotoUpload from './PhotoUpload.astro';
+---
+<form id="form-view" class="form-view">
+  <label for="name">Nome completo</label>
+  <input id="name" name="name" type="text" placeholder="Seu nome completo" autocomplete="name" required>
+
+  <label for="email">E-mail</label>
+  <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required>
+
+  <div class="row2">
+    <div>
+      <label for="phone">Celular</label>
+      <input id="phone" name="phone" type="tel" placeholder="(31) 99999-9999" autocomplete="tel" required>
+    </div>
+    <div>
+      <label for="doc">CPF</label>
+      <input id="doc" name="doc" type="text" placeholder="000.000.000-00" inputmode="numeric" required>
+    </div>
+  </div>
+
+  <PhotoUpload />
+
+  <div class="pix-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+    Pagamento via Pix
+  </div>
+
+  <button type="submit" class="pay-btn" id="pay-btn">Pagar com Pix</button>
+  <div class="error-box" id="error-box"></div>
+  <p class="lock-note">🔒 Pagamento processado com segurança pela Cakto</p>
+</form>
