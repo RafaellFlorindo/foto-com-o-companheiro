@@ -1,0 +1,29 @@
+---
+interface Props {
+  step: string;
+  titulo: string;
+  apoio: string;
+}
+const { step, titulo, apoio } = Astro.props;
+---
+<section class="step step-carregando" data-step={step} hidden>
+  <span class="girando" aria-hidden="true"></span>
+  <h1>{titulo}</h1>
+  <p class="lead">{apoio}</p>
+</section>
+
+<style>
+  .step-carregando{ text-align:center; padding: 26px 0 18px; }
+  .step-carregando h1{ font-size:19px; margin-bottom:8px; }
+  .girando{
+    display:block; width:42px; height:42px; margin:0 auto 22px;
+    border:3px solid rgba(255,201,60,0.25);
+    border-top-color: var(--dourado);
+    border-radius:50%;
+    animation: girar .8s linear infinite;
+  }
+  @keyframes girar{ to{ transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce){
+    .girando{ animation-duration: 2.4s; }
+  }
+</style>

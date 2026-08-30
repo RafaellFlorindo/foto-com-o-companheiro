@@ -1,15 +1,20 @@
 ---
 ---
-<label for="photo">Sua foto</label>
-<p class="upload-hint">Envie uma foto sua de rosto — é a que vamos usar na montagem.</p>
-<label class="upload-box" id="upload-box" for="photo">
-  <div class="upload-empty" id="upload-empty">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
-    <span>Toque para escolher a foto</span>
-  </div>
-  <img class="upload-preview" id="upload-preview" alt="Prévia da sua foto">
-</label>
-<input type="file" id="photo" name="photo" accept="image/*" style="display:none" required>
+<div class="campo campo-foto">
+  <label for="photo">Sua foto</label>
+  <p class="upload-hint">Uma foto sua de rosto, bem iluminada — é a que vamos usar na montagem.</p>
+
+  <label class="upload-box" id="upload-box" for="photo">
+    <span class="upload-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+      <span>Toque para escolher a foto</span>
+    </span>
+    <img class="upload-preview" id="upload-preview" alt="Prévia da foto que você escolheu">
+  </label>
+
+  <input type="file" id="photo" name="photo" accept="image/*" hidden>
+  <p class="dica" id="photo-dica">A foto fica só no seu celular; você envia ela pra gente no WhatsApp depois de pagar.</p>
+</div>
 
 <style>
   .upload-hint{

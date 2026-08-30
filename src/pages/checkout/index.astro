@@ -2,22 +2,39 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import OrderSummary from '../../components/checkout/OrderSummary.astro';
 import CheckoutForm from '../../components/checkout/CheckoutForm.astro';
-import PixResult from '../../components/checkout/PixResult.astro';
-import { LOGO_SRC } from '../../config/site';
+import LoadingStep from '../../components/checkout/LoadingStep.astro';
+import PixStep from '../../components/checkout/PixStep.astro';
+import ApprovedStep from '../../components/checkout/ApprovedStep.astro';
+import { LOGO_SRC, PRICE_LABEL } from '../../config/site';
 import '../../styles/checkout.css';
+
+export const prerender = false;
 ---
 <BaseLayout
   title="Finalizar compra — Foto com o Companheiro"
-  description="Finalize sua compra da montagem personalizada com IA ao lado do Lula. Pagamento via Pix, R$ 13,00."
+  description={`Finalize sua compra da montagem personalizada ao lado do Lula. Pagamento via Pix, ${PRICE_LABEL}.`}
   bodyClass="checkout-page"
 >
   <div class="checkout-wrap">
-    <div class="checkout-logo"><img src={LOGO_SRC} alt=""> Foto com<span class="dot">.</span>Companheiro</div>
+    <a class="checkout-logo" href="/">
+      <img src={LOGO_SRC} alt=""> Foto com<span class="dot">.</span>Companheiro
+    </a>
 
     <div class="card">
       <OrderSummary />
       <CheckoutForm />
-      <PixResult />
+      <LoadingStep
+        step="gerando"
+        titulo="Gerando seu Pix…"
+        apoio="Só um instante."
+      />
+      <PixStep />
+      <LoadingStep
+        step="confirmando"
+        titulo="Estamos confirmando seu pagamento…"
+        apoio="Não feche esta tela. Assim que o banco avisar, a gente segue."
+      />
+      <ApprovedStep />
     </div>
   </div>
 

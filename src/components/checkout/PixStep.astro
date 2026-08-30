@@ -1,0 +1,78 @@
+---
+import { PRICE_LABEL } from '../../config/site';
+---
+<section class="step" data-step="pix" hidden>
+  <header class="step-topo">
+    <p class="olho">Passo 3 de 3</p>
+    <h1>Pague com Pix</h1>
+    <p class="lead">Abra o app do seu banco, escaneie o código e pronto.</p>
+  </header>
+
+  <div class="qr-box">
+    <img id="pix-qr" alt="QR Code para pagar com Pix">
+  </div>
+
+  <p class="pix-valor">
+    <span>Valor</span>
+    <strong>{PRICE_LABEL}</strong>
+  </p>
+
+  <p class="demorou" id="pix-demorou" hidden>
+    O banco ainda não confirmou. Isso às vezes leva alguns minutos —
+    deixe esta tela aberta que a gente avisa assim que cair.
+  </p>
+
+  <p class="aguardando">
+    <span class="pulso" aria-hidden="true"></span>
+    Aguardando o pagamento…
+  </p>
+
+  <button type="button" class="pay-btn" id="ja-paguei-btn">Já paguei</button>
+
+  <label class="copiar-label" for="pix-code">Ou copie o código Pix</label>
+  <div class="copy-field">
+    <input type="text" id="pix-code" readonly>
+    <button type="button" id="copy-btn">Copiar</button>
+  </div>
+
+  <p class="explicacao">
+    Assim que o pagamento cair, esta tela muda sozinha e leva você ao
+    WhatsApp para enviar sua foto.
+  </p>
+
+  <button type="button" class="voltar" data-ir="dados">Voltar</button>
+</section>
+
+<style>
+  .pix-valor{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-top:14px; padding:12px 14px; border-radius:12px;
+    background: rgba(255,201,60,0.1); border:1px solid rgba(255,201,60,0.3);
+    font-size:13px; font-weight:700;
+  }
+  .pix-valor strong{ font-family:'Anton', sans-serif; font-size:22px; color: var(--dourado); }
+  .aguardando{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    margin-top:16px; font-size:13.5px; font-weight:700; opacity:.9;
+  }
+  .pulso{
+    width:9px; height:9px; border-radius:50%; background: var(--dourado);
+    animation: pulsar 1.4s ease-in-out infinite;
+  }
+  @keyframes pulsar{
+    0%,100%{ opacity:1; transform:scale(1); }
+    50%{ opacity:.35; transform:scale(.7); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .pulso{ animation: none; }
+  }
+  .demorou{
+    margin-top:16px; padding:12px 14px; border-radius:10px;
+    background: rgba(255,201,60,0.12); border:1px solid rgba(255,201,60,0.35);
+    font-size:12.5px; line-height:1.5;
+  }
+  .copiar-label{ margin-top:20px; }
+  .explicacao{
+    margin-top:16px; font-size:12.5px; opacity:.7; line-height:1.5; text-align:center;
+  }
+</style>

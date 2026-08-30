@@ -1,32 +1,51 @@
 ---
 import PhotoUpload from './PhotoUpload.astro';
+import { PRICE_LABEL } from '../../config/site';
 ---
-<form id="form-view" class="form-view">
-  <label for="name">Nome completo</label>
-  <input id="name" name="name" type="text" placeholder="Seu nome completo" autocomplete="name" required>
+<section class="step" data-step="dados" hidden>
+  <header class="step-topo">
+    <p class="olho">Passo 2 de 3</p>
+    <h1>Seus dados e sua foto</h1>
+    <p class="lead">É com esses dados que a gente confirma o pagamento e fala com você.</p>
+  </header>
 
-  <label for="email">E-mail</label>
-  <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required>
-
-  <div class="row2">
-    <div>
-      <label for="phone">Celular</label>
-      <input id="phone" name="phone" type="tel" placeholder="(31) 99999-9999" autocomplete="tel" required>
+  <form id="form-view" class="form-view" novalidate>
+    <div class="campo">
+      <label for="name">Nome completo</label>
+      <input id="name" name="name" type="text" placeholder="Seu nome e sobrenome" autocomplete="name">
+      <p class="dica" id="name-dica">Como está no seu documento.</p>
     </div>
-    <div>
-      <label for="doc">CPF</label>
-      <input id="doc" name="doc" type="text" placeholder="000.000.000-00" inputmode="numeric" required>
+
+    <div class="campo">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" placeholder="seu@email.com" inputmode="email" autocomplete="email">
+      <p class="dica" id="email-dica">Para o comprovante da compra.</p>
     </div>
-  </div>
 
-  <PhotoUpload />
+    <div class="campo">
+      <label for="phone">Celular com DDD</label>
+      <input id="phone" name="phone" type="tel" placeholder="(31) 99999-9999" inputmode="tel" autocomplete="tel">
+      <p class="dica" id="phone-dica">É por ele que a gente te entrega a foto no WhatsApp.</p>
+    </div>
 
-  <div class="pix-badge">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-    Pagamento via Pix
-  </div>
+    <PhotoUpload />
 
-  <button type="submit" class="pay-btn" id="pay-btn">Pagar com Pix</button>
-  <div class="error-box" id="error-box"></div>
-  <p class="lock-note">🔒 Pagamento processado com segurança pela Cakto</p>
-</form>
+    <p class="sem-cpf">Não pedimos CPF.</p>
+
+    <div class="pix-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+      Pagamento via Pix — {PRICE_LABEL}
+    </div>
+
+    <button type="submit" class="pay-btn" id="pay-btn">Gerar meu Pix</button>
+    <div class="error-box" id="error-box" role="alert"></div>
+    <button type="button" class="voltar" data-ir="resumo">Voltar</button>
+    <p class="lock-note">🔒 Pagamento processado com segurança pela Cakto</p>
+  </form>
+</section>
+
+<style>
+  .sem-cpf{
+    font-size:12.5px; opacity:.7; text-align:center; margin-top:16px;
+  }
+</style>
