@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Sua Foto ao Lado do Lula — Montagem com IA | R$ 13,00</title>
 <meta name="description" content="Envie sua foto e receba uma montagem personalizada com IA ao lado do Lula. Produto digital por R$ 13,00. A imagem é uma montagem e não representa encontro real.">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1578458727391627');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1578458727391627&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link rel="icon" type="image/png" href="0928cc08-c912-473a-aac0-883c45aa91c1.png">
 <link rel="apple-touch-icon" href="0928cc08-c912-473a-aac0-883c45aa91c1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,11 +160,19 @@
 
   /* ---------- HEADER ---------- */
   .topbar{
-    display:flex; align-items:center; justify-content:center;
-    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 500;
     min-height: 68px;
     background: var(--preto);
     border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .topbar-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+    min-height: 68px;
   }
   .logo{
     font-family:'Anton', sans-serif;
@@ -170,6 +195,25 @@
       max-width: 200px;
     }
   }
+  .nav-links{
+    display:none;
+    align-items:center;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .nav-links a{ color: rgba(255,233,214,0.82); transition: color .15s ease; }
+  .nav-links a:hover{ color: var(--dourado-2); }
+  .nav-cta{
+    display:none;
+    width: auto;
+    font-size: 13px;
+    padding: 12px 22px;
+    box-shadow: 0 5px 0 #b8860b, 0 10px 18px rgba(0,0,0,0.35);
+  }
+  @media(min-width:900px){
+    .nav-links, .nav-cta{ display:flex; }
+  }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -188,7 +232,12 @@
     opacity:0.4;
     pointer-events:none;
   }
-  .hero-inner{ position:relative; z-index:1; }
+  .hero-inner{
+    position:relative; z-index:1;
+    display:flex;
+    flex-direction:column;
+    gap: 30px;
+  }
   .hero .eyebrow{ margin-bottom: 16px; animation: pulseGlow 2.2s ease-in-out infinite; }
   @keyframes pulseGlow{
     0%,100%{ box-shadow: 0 0 0 0 rgba(255,201,60,0.35); }
@@ -208,39 +257,80 @@
     font-weight: 500;
   }
 
-  /* mini prova visual dentro do hero */
-  .hero-proof{
+  /* ---------- CARTÃO DA FOTO (hero) ---------- */
+  .id-card{
+    max-width: 380px;
+    margin: 0 auto;
+    background: var(--branco);
+    color: var(--preto);
+    border-radius: var(--radius);
+    padding: 14px 14px 18px;
+    box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+    text-align:left;
+  }
+  .id-card-photo{
+    position:relative;
+    border-radius: var(--radius-sm);
+    overflow:hidden;
+    aspect-ratio: 4/5;
+  }
+  .id-card-photo img{ width:100%; height:100%; object-fit:cover; }
+  .id-card-badge{
+    position:absolute; top:10px; right:10px; z-index:2;
+    background: var(--vermelho-escuro);
+    color: var(--dourado-2);
+    font-size: 9.5px;
+    font-weight:800;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    padding: 5px 10px;
+    border-radius: 100px;
+  }
+  .id-card-mini{
+    position:absolute; left:10px; bottom:26px; z-index:2;
+    width: 60px; height:60px;
+    border-radius: 10px;
+    overflow:hidden;
+    border: 3px solid var(--branco-puro);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+  }
+  .id-card-mini img{ width:100%; height:100%; object-fit:cover; }
+  .id-card-banner{
+    position:absolute; left:0; right:0; bottom:0; z-index:1;
+    background: linear-gradient(90deg, var(--vermelho-vivo), var(--vermelho-vivo-2));
+    color: var(--branco-puro);
+    font-family:'Anton', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    padding: 11px 14px 11px 82px;
+  }
+  .id-card-captions{
+    display:flex;
+    justify-content:space-between;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #7a6a5a;
+    padding: 12px 4px 10px;
+  }
+  .id-card-captions span:last-child{ text-align:right; }
+  .id-card-bottom{
     display:flex;
     align-items:center;
-    justify-content:center;
-    gap: 10px;
-    max-width: 320px;
-    margin: 0 auto 24px;
-    background: rgba(0,0,0,0.22);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 100px;
-    padding: 8px 8px 8px 8px;
+    justify-content:space-between;
+    border-top: 1px dashed rgba(74,5,5,0.18);
+    padding: 12px 4px 2px;
   }
-  .hero-proof .mini-shot{
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.5);
-    flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-    font-size:16px;
+  .id-card-bottom span:first-child{
+    font-family:'Anton', sans-serif;
+    font-size: 13px;
+    letter-spacing:0.4px;
+    color: var(--vermelho-escuro);
   }
-  .hero-proof .mini-shot.antes{ background: linear-gradient(135deg,#5c5c5c,#3a3a3a); margin-right:-16px; }
-  .hero-proof .mini-shot.depois{ background: linear-gradient(135deg, var(--vermelho-vivo-2), var(--vermelho-vivo)); border-color: var(--dourado); z-index:1; }
-  .hero-proof .mini-shot{ overflow:hidden; padding:0; }
-  .hero-proof .mini-shot img{ width:100%; height:100%; object-fit:cover; }
-  .hero-proof .mini-arrow{ color: var(--dourado); flex-shrink:0; }
-  .hero-proof .mini-arrow svg{ width:14px; height:14px; }
-  .hero-proof span.txt{
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--dourado-2);
-    text-align:left;
-    line-height:1.3;
+  .id-card-price{
+    font-family:'Anton', sans-serif;
+    font-size: 20px;
+    color: var(--vermelho-vivo);
   }
 
   .price-tag{
@@ -288,9 +378,21 @@
 
   @media(min-width:900px){
     .hero{ padding: 60px 0 52px; }
-    .hero h1{ font-size: 50px; max-width: 760px; margin-left:auto; margin-right:auto; }
-    .hero p.sub{ max-width: 560px; font-size: 19px; }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1fr 1.05fr;
+      align-items:center;
+      gap: 60px;
+      text-align:left;
+    }
+    .hero-content{ text-align:left; }
+    .hero h1{ font-size: 50px; }
+    .hero p.sub{ max-width: 480px; margin-left:0; margin-right:0; font-size: 19px; }
+    .hero-cta{ margin: 0; }
+    .hero-content .trust-row{ justify-content:flex-start; }
+    .hero-content .btn-sub{ justify-content:flex-start; }
     .price-tag .value{ font-size: 62px; }
+    .id-card{ max-width: 420px; margin:0; }
   }
 
   /* ---------- ANTES / DEPOIS ---------- */
@@ -322,6 +424,7 @@
     margin: 0 auto 18px;
   }
   .ad-card{
+    position:relative;
     border-radius: var(--radius);
     overflow:hidden;
     box-shadow: 0 16px 32px rgba(74,5,5,0.16);
@@ -329,15 +432,26 @@
     border: 1px solid rgba(74,5,5,0.08);
   }
   .ad-card .tag{
+    position:absolute;
+    top:10px; left:10px; z-index:2;
     font-family:'Anton', sans-serif;
-    font-size: 11.5px;
-    letter-spacing: 1px;
-    padding: 8px 0;
-    text-align:center;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    padding: 6px 12px;
+    border-radius: 100px;
     color:var(--branco-puro);
   }
-  .ad-card.antes .tag{ background: #2c2c2c; }
+  .ad-card.antes .tag{ background: rgba(44,44,44,0.85); }
   .ad-card.depois .tag{ background: linear-gradient(90deg, var(--vermelho-vivo), var(--vermelho-vivo-2)); }
+  .ad-card .cap{
+    text-align:center;
+    padding: 10px 8px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--vermelho-escuro);
+  }
 
   /* área de imagem: troque o .ph-frame por <img class="ph-img" src="sua-foto.jpg"> quando tiver os arquivos reais */
   .ph-frame{
@@ -421,40 +535,36 @@
     font-size: 25px;
     color: var(--branco-puro);
     text-align:center;
-    margin-bottom: 34px;
+    margin-bottom: 10px;
   }
-  .steps{ display:flex; flex-direction:column; gap:14px; position:relative; }
-  .steps::before{
-    content:"";
-    position:absolute;
-    left: 23px; top: 12px; bottom: 12px;
-    width: 2px;
-    background: repeating-linear-gradient(to bottom, rgba(216,19,19,0.5) 0 6px, transparent 6px 12px);
+  .how-section .intro{
+    text-align:center;
+    font-size: 15px;
+    color: rgba(255,233,214,0.72);
+    max-width: 360px;
+    margin: 0 auto 28px;
+    font-weight: 600;
+  }
+  .steps{
+    display:flex;
+    flex-direction:column;
+    border: 1px solid rgba(216,19,19,0.35);
+    border-radius: var(--radius);
+    overflow:hidden;
   }
   .step{
-    display:flex;
-    gap: 16px;
-    align-items:flex-start;
-    background: linear-gradient(135deg, rgba(216,19,19,0.12), rgba(216,19,19,0.02));
-    border: 1px solid rgba(216,19,19,0.3);
-    border-radius: var(--radius);
-    padding: 18px;
-    position: relative;
+    padding: 22px 20px;
+    border-top: 1px solid rgba(216,19,19,0.3);
   }
+  .step:first-child{ border-top:none; }
   .step-num{
-    flex-shrink:0;
-    width: 46px; height:46px;
-    border-radius:50%;
-    background: linear-gradient(160deg, var(--vermelho-vivo-2), var(--vermelho-vivo));
-    color: var(--branco-puro);
+    display:block;
     font-family:'Anton', sans-serif;
-    font-size: 19px;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 0 0 5px var(--preto), 0 4px 0 #8a0c0c;
-    position: relative;
-    z-index: 1;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    color: var(--dourado);
+    margin-bottom: 8px;
   }
-  .step-icon{ width:20px; height:20px; color: var(--dourado); margin-bottom:6px; }
   .step h3{
     font-family:'Manrope',sans-serif;
     text-transform:none;
@@ -467,10 +577,10 @@
   .step p{ font-size: 13.5px; color: rgba(255,233,214,0.78); font-weight:500; }
   @media(min-width:900px){
     .steps{ flex-direction:row; }
-    .steps::before{ display:none; }
-    .step{ flex:1; flex-direction:column; text-align:center; align-items:center; padding: 30px 22px; }
-    .step-num{ box-shadow: 0 4px 0 #8a0c0c; }
+    .step{ flex:1; border-top:none; border-left: 1px solid rgba(216,19,19,0.3); padding: 30px 26px; }
+    .step:first-child{ border-left:none; }
     .how-section h2{ font-size:34px; }
+    .how-section .intro{ max-width:520px; font-size:16px; }
   }
 
   /* ---------- BENEFÍCIOS ---------- */
@@ -865,48 +975,52 @@
 
   /* ---------- CTA FINAL ---------- */
   .final-section{
-    background:
-      radial-gradient(120% 100% at 50% 100%, rgba(255,201,60,0.14), transparent 60%),
-      linear-gradient(160deg, var(--vermelho-vivo), var(--vermelho-escuro));
+    background: linear-gradient(135deg, var(--dourado-2), var(--dourado));
     padding: 56px 0 60px;
     text-align:center;
   }
   .final-section h2{
     font-size: 26px;
-    color: var(--branco-puro);
+    color: var(--preto);
     max-width: 340px;
     margin: 0 auto 14px;
   }
   .final-section p.sub{
     font-size: 15px;
-    color: var(--texto-claro);
-    opacity:0.9;
+    color: rgba(26,13,13,0.75);
     max-width: 340px;
     margin: 0 auto 24px;
-    font-weight:500;
+    font-weight:600;
   }
   .final-price{
     display:inline-flex;
     align-items:baseline;
     gap: 8px;
-    background: rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,201,60,0.4);
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(74,5,5,0.25);
     border-radius: 100px;
     padding: 10px 22px;
     margin-bottom: 24px;
   }
   .final-price .lbl{
     font-family:'Anton', sans-serif;
-    color: var(--branco-puro);
+    color: var(--preto);
     font-size: 15px;
     letter-spacing:0.5px;
   }
   .final-price .val{
     font-family:'Anton', sans-serif;
-    color: var(--dourado);
+    color: var(--vermelho-vivo);
     font-size: 28px;
   }
-  .final-section .btn-primary{ max-width: 360px; margin:0 auto; }
+  .final-section .btn-primary{
+    max-width: 360px;
+    margin:0 auto;
+    background: var(--preto);
+    color: var(--dourado);
+    box-shadow: 0 8px 0 #000, 0 18px 30px rgba(0,0,0,0.3);
+  }
+  .final-section .btn-primary:active{ box-shadow: 0 2px 0 #000; }
   @media(min-width:900px){
     .final-section h2{ font-size:38px; max-width:600px; }
     .final-section p.sub{ max-width:520px; font-size:17px; }
@@ -916,18 +1030,38 @@
   footer{
     background: var(--preto);
     padding: 28px 0 96px;
-    text-align:center;
     border-top: 1px solid rgba(255,255,255,0.06);
   }
-  footer p{
+  .footer-notice{
+    text-align:left;
+    border-left: 3px solid var(--dourado);
+    background: rgba(255,255,255,0.03);
+    padding: 14px 16px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: 20px;
+  }
+  .footer-notice p{
+    font-size: 11.5px;
+    color: rgba(255,233,214,0.55);
+    line-height:1.7;
+    margin:0;
+    max-width:none;
+  }
+  .footer-notice strong{ color: var(--dourado-2); }
+  footer .foot-bottom{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 10px;
+    text-align:center;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer .copyright{
     font-size: 11.5px;
     color: rgba(255,233,214,0.4);
-    line-height:1.7;
-    max-width: 420px;
-    margin: 0 auto;
   }
   footer .foot-links{
-    margin-top: 14px;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
@@ -942,10 +1076,12 @@
     gap:6px;
     color: var(--dourado-2);
     font-weight:700;
-    margin-top: 14px;
     font-size:13px;
   }
-  @media(min-width:900px){ footer{ padding-bottom: 40px; } }
+  @media(min-width:900px){
+    footer{ padding-bottom: 40px; }
+    .footer-notice{ max-width: 720px; margin-left:auto; margin-right:auto; }
+  }
 
   /* ---------- BARRA FIXA MOBILE ---------- */
   .sticky-cta{
@@ -975,51 +1111,68 @@
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="logo"><img src="0928cc08-c912-473a-aac0-883c45aa91c1.png" alt="Foto com o Companheiro"></div>
+  <div class="wrap topbar-inner">
+    <div class="logo"><img src="0928cc08-c912-473a-aac0-883c45aa91c1.png" alt="Foto com o Companheiro"></div>
+    <nav class="nav-links">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#exemplos">Exemplos</a>
+      <a href="#preco">Preço</a>
+    </nav>
+    <a href="#" class="btn btn-primary nav-cta" data-checkout>Quero a minha</a>
+  </div>
 </div>
 
 <!-- HERO -->
 <header class="hero" id="hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow">🔥 Montagem personalizada com IA</span>
-    <h1>JÁ IMAGINOU TER UMA FOTO SUA <span class="amarelo">AO LADO DO LULA?</span></h1>
-    <p class="sub">Você manda uma foto pelo WhatsApp. A gente cria uma <strong>montagem personalizada com IA</strong> e entrega o arquivo pronto para você guardar, postar ou compartilhar.</p>
-
-    <!-- mini prova visual: reforça a promessa antes mesmo da seção de antes/depois -->
-    <div class="hero-proof">
-      <span class="mini-shot antes"><img src="bf97f3da-d6f3-4f30-8997-0c8cbe43ab2e.png" alt="Foto original enviada pelo cliente"></span>
-      <span class="mini-shot depois"><img src="54e19517-8e37-451e-a22b-4c174c113ed8.png" alt="Exemplo de montagem criada com IA"></span>
-      <span class="mini-arrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-      </span>
-      <span class="txt">Antes e depois<br>da sua montagem</span>
+    <div class="id-card">
+      <div class="id-card-photo">
+        <img src="dps.png" alt="Depois: montagem personalizada criada com IA ao lado do Lula">
+        <span class="id-card-badge">Gerado por IA</span>
+        <span class="id-card-mini"><img src="bf97f3da-d6f3-4f30-8997-0c8cbe43ab2e.png" alt="Antes: foto original enviada pelo cliente"></span>
+        <span class="id-card-banner">AO LADO DO LULA</span>
+      </div>
+      <div class="id-card-captions">
+        <span>A foto que você manda</span>
+        <span>O que você recebe</span>
+      </div>
+      <div class="id-card-bottom">
+        <span>Montagem com IA</span>
+        <span class="id-card-price">R$ 13</span>
+      </div>
     </div>
 
-    <div class="price-tag">
-      <span class="label">Por apenas</span>
-      <span class="value"><span>R$</span> 13,00</span>
-    </div>
+    <div class="hero-content">
+      <span class="eyebrow">🔥 Montagem personalizada com IA</span>
+      <h1>JÁ IMAGINOU TER UMA FOTO SUA <span class="amarelo">AO LADO DO LULA?</span></h1>
+      <p class="sub">Você manda uma foto pelo WhatsApp. A gente cria uma <strong>montagem personalizada com IA</strong> e entrega o arquivo pronto para você guardar, postar ou compartilhar.</p>
 
-    <div class="hero-cta">
-      <a href="#" class="btn btn-primary" data-checkout>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-        Quero minha foto por R$ 13
-      </a>
-      <p class="btn-sub">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        Pagamento único • Sem mensalidade
-      </p>
-      <div class="trust-row">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Pagamento único</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Atendimento no WhatsApp</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> Arquivo digital</span>
+      <div class="price-tag">
+        <span class="label">Por apenas</span>
+        <span class="value"><span>R$</span> 13,00</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary" data-checkout>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+          Quero minha foto por R$ 13
+        </a>
+        <p class="btn-sub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+          Pagamento único • Sem mensalidade
+        </p>
+        <div class="trust-row">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Pagamento único</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Atendimento no WhatsApp</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> Arquivo digital</span>
+        </div>
       </div>
     </div>
   </div>
 </header>
 
 <!-- ANTES / DEPOIS -->
-<section class="transform-section">
+<section class="transform-section" id="exemplos">
   <div class="wrap">
     <span class="section-kicker dark">A transformação</span>
     <h2>VOCÊ MANDA UMA FOTO COMUM. A GENTE FAZ A TRANSFORMAÇÃO.</h2>
@@ -1028,8 +1181,9 @@
     <div class="ad-grid">
       <!-- Foto ANTES -->
       <div class="ad-card antes">
-        <div class="tag">ANTES</div>
+        <span class="tag">Sua foto</span>
         <img class="ph-img" src="antes.png" alt="Antes: foto original enviada pelo cliente">
+        <div class="cap">Antes</div>
       </div>
 
       <div class="arrow-icon">
@@ -1038,8 +1192,9 @@
 
       <!-- Foto DEPOIS -->
       <div class="ad-card depois">
-        <div class="tag">DEPOIS</div>
+        <span class="tag">Gerado por IA</span>
         <img class="ph-img" src="dps.png" alt="Depois: montagem personalizada criada com IA ao lado do Lula">
+        <div class="cap">Depois</div>
       </div>
     </div>
 
@@ -1053,34 +1208,26 @@
 </section>
 
 <!-- COMO FUNCIONA -->
-<section class="how-section">
+<section class="how-section" id="como-funciona">
   <div class="wrap">
     <span class="section-kicker">Processo</span>
     <h2>VEJA COMO É SIMPLES</h2>
+    <p class="intro">Sem programa complicado e sem precisar saber editar. Você manda a foto e a gente cuida do resto.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <h3>Envie sua foto</h3>
-          <p>Escolha uma foto nítida, de preferência com o rosto aparecendo bem.</p>
-        </div>
+        <span class="step-num">Passo 1</span>
+        <h3>Envie sua foto</h3>
+        <p>Escolha uma foto nítida, de preferência com o rosto aparecendo bem.</p>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l1.9 4.9L19 8.8l-4.9 1.9L12 15.6l-1.9-4.9L5 8.8l4.9-1.9z"/><path d="M19 15l.9 2.3L22 18l-2.1.7L19 21l-.9-2.3L16 18l2.1-.7z"/></svg>
-          <h3>Criamos sua imagem</h3>
-          <p>Criamos uma montagem personalizada sua ao lado do Lula com inteligência artificial.</p>
-        </div>
+        <span class="step-num">Passo 2</span>
+        <h3>Criamos sua imagem</h3>
+        <p>Criamos uma montagem personalizada sua ao lado do Lula com inteligência artificial.</p>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>
-          <h3>Receba o resultado</h3>
-          <p>Você recebe o arquivo digital pronto pelo atendimento combinado no WhatsApp.</p>
-        </div>
+        <span class="step-num">Passo 3</span>
+        <h3>Receba o resultado</h3>
+        <p>Você recebe o arquivo digital pronto pelo atendimento combinado no WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -1252,20 +1399,25 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
       Quero minha foto por R$ 13
     </a>
-    <p class="btn-sub" style="color:rgba(255,255,255,0.75)">Pagamento único • Produto digital</p>
+    <p class="btn-sub" style="color:rgba(26,13,13,0.7)">Pagamento único • Produto digital</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>Este produto oferece uma montagem digital criada com inteligência artificial. As imagens não representam encontro real e não implicam vínculo, participação, autorização institucional ou endosso do Lula ao produto.</p>
-    <!-- Link configurado pelo WHATSAPP_NUMBER no final do arquivo -->
-    <a href="#" class="wpp-link" data-whatsapp>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.2 5.2 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-      Falar no WhatsApp
-    </a>
-    <div class="foot-links">
-      <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a> • <a href="#">Contato</a>
+    <div class="footer-notice">
+      <p><strong>Aviso:</strong> Este produto oferece uma montagem digital criada com inteligência artificial. As imagens não representam encontro real e não implicam vínculo, participação, autorização institucional ou endosso do Lula ao produto.</p>
+    </div>
+    <div class="foot-bottom">
+      <span class="copyright">© 2026 Foto com o Companheiro</span>
+      <!-- Link configurado pelo WHATSAPP_NUMBER no final do arquivo -->
+      <a href="#" class="wpp-link" data-whatsapp>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.2 5.2 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <div class="foot-links">
+        <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a> • <a href="#">Contato</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -1296,8 +1448,8 @@
     el.rel = 'noopener noreferrer';
   });
 
-  // CHECKOUT — link de pagamento do produto na Cakto.
-  const CAKTO_CHECKOUT_URL = 'https://pay.cakto.com.br/bs8zjtu';
+  // CHECKOUT — nosso checkout próprio (Pix + upload de foto), via API da Cakto.
+  const CAKTO_CHECKOUT_URL = 'https://foto-companheiro-checkout.vercel.app/';
 
   document.querySelectorAll('[data-checkout]').forEach(el => {
     el.href = CAKTO_CHECKOUT_URL;

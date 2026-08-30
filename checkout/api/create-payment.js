@@ -48,14 +48,10 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { name, email, phone, docNumber, paymentMethod, fingerprint } = req.body || {};
+  const { name, email, phone, docNumber, fingerprint } = req.body || {};
 
   if (!name || !email || !phone || !docNumber || !fingerprint) {
     res.status(400).json({ error: 'missing_fields' });
-    return;
-  }
-  if (!['pix', 'boleto'].includes(paymentMethod)) {
-    res.status(400).json({ error: 'invalid_payment_method' });
     return;
   }
 
@@ -76,7 +72,7 @@ export default async function handler(req, res) {
     const idempotencyKey = crypto.randomUUID();
 
     const body = {
-      paymentMethod,
+      paymentMethod: 'pix',
       customer: {
         name,
         email,
@@ -87,12 +83,6 @@ export default async function handler(req, res) {
       },
       items: [{ offerId: OFFER_ID }],
     };
-
-    if (paymentMethod === 'boleto') {
-      const due = new Date();
-      due.setDate(due.getDate() + 3);
-      body.dueDate = due.toISOString().slice(0, 10);
-    }
 
     const paymentRes = await fetch(`${CAKTO_API}/public_api/payments/`, {
       method: 'POST',
